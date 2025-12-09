@@ -1,2 +1,7 @@
-description: |
-  <svg><animatetransform onbegin="alert(document.domain)"></animatetransform></svg>
+openapi: 3.1.0
+info:
+  title: Sample API
+  description: |
+    <svg><animatetransform onbegin="alert(document.domain)"></animatetransform></svg>
+  version: 1.0.0
+paths: {}
