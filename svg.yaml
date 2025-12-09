@@ -1,0 +1,2 @@
+description: |
+  <svg><animatetransform onbegin="alert(document.domain)"></animatetransform></svg>
